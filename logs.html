@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Extension Logs</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #1e1e1e;
+            color: #00ff00;
+            padding: 20px;
+            white-space: pre-wrap;
+            /* Keeps formatting like a text file */
+        }
+
+        #controls {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+
+        button {
+            background: #333;
+            color: white;
+            border: 1px solid #555;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="controls">
+        <button id="refresh">Refresh</button>
+        <button id="clear">Clear Logs</button>
+    </div>
+    <div id="log-container">Loading logs...</div>
+    <script src="logs.js"></script>
+</body>
+
+</html>

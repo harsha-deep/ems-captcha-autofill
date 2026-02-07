@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "CAPTCHA Autofill",
+    "version": "1.0",
+    "permissions": [
+        "storage",
+        "scripting",
+        "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://smartcsg.karnataka.gov.in/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "16": "icon.png",
+        "32": "icon.png",
+        "64": "icon.png",
+        "128": "icon.png"
+    }
+}

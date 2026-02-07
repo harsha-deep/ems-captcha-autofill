@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 300px;
+            padding: 16px;
+            margin: 0;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .status-label {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .toggle-switch {
+            width: 44px;
+            height: 24px;
+            background-color: #ccc;
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-knob {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .toggle-switch.active {
+            background-color: #10b981;
+        }
+
+        .toggle-switch.active .toggle-knob {
+            transform: translateX(20px);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e5e5e5;
+            margin: 0 0 12px 0;
+        }
+
+        .label {
+            font-size: 11px;
+            color: #888;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .site-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            display: none;
+        }
+
+        .badge.visible {
+            display: inline-block;
+        }
+
+        .success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .warning {
+            background: #f3f4f6;
+            color: #6b7280;
+        }
+
+        .disabled {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .footer {
+            margin-top: 16px;
+        }
+
+        .link {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 13px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <span class="status-label">Captcha Helper</span>
+        <div id="toggleBtn" class="toggle-switch">
+            <div class="toggle-knob"></div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div>
+        <div class="label">[ Current Site ]</div>
+        <div id="siteName" class="site-name">Checking...</div>
+
+        <div id="badge-active" class="badge success">Auto-fill enabled</div>
+        <div id="badge-unsupported" class="badge warning">Not supported</div>
+        <div id="badge-disabled" class="badge disabled">Extension Paused</div>
+    </div>
+
+    <div class="footer">
+        <div class="label">[ Logs link ]</div>
+        <button id="logsBtn" class="link">View activity ➜</button>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
