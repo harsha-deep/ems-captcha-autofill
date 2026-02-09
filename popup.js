@@ -2,21 +2,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const TARGET_HOST = "smartcsg.karnataka.gov.in";
 
-    const toggleBtn = document.getElementById('toggleBtn');
     const siteNameEl = document.getElementById('siteName');
     const badgeActive = document.getElementById('badge-active');
     const badgeUnsupported = document.getElementById('badge-unsupported');
-    const badgeDisabled = document.getElementById('badge-disabled');
     const logsBtn = document.getElementById('logsBtn');
 
-    let isEnabled = true;
     let currentSite = "";
     let isTargetSite = false;
-
-    const storageData = await chrome.storage.local.get(['isEnabled']);
-    if (storageData.isEnabled !== undefined) {
-        isEnabled = storageData.isEnabled;
-    }
 
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
@@ -32,28 +24,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     render();
 
-    toggleBtn.addEventListener('click', () => {
-        isEnabled = !isEnabled;
-        chrome.storage.local.set({ isEnabled });
-        render();
-    });
-
     function render() {
-        if (isEnabled) {
-            toggleBtn.classList.add('active');
-        } else {
-            toggleBtn.classList.remove('active');
-        }
-
         badgeActive.classList.remove('visible');
         badgeUnsupported.classList.remove('visible');
-        badgeDisabled.classList.remove('visible');
 
         siteNameEl.textContent = currentSite || "Unknown";
 
-        if (!isEnabled) {
-            badgeDisabled.classList.add('visible');
-        } else if (isTargetSite) {
+        if (isTargetSite) {
             badgeActive.classList.add('visible');
             if (tab?.id) {
                 triggerAutofill(tab.id);
@@ -84,7 +61,6 @@ function triggerAutofill(tabId) {
                 inputField.dispatchEvent(new Event('change', { bubbles: true }));
 
                 console.log(`Captcha autofilled (Manual Trigger): "${captchaText}"`);
-                logToStorage(`Captcha autofilled (Manual Trigger): "${captchaText}"`);
             }
         }
     });

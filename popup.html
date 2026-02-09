@@ -14,45 +14,12 @@
         }
 
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             margin-bottom: 12px;
         }
 
         .status-label {
             font-weight: 600;
             font-size: 14px;
-        }
-
-        .toggle-switch {
-            width: 44px;
-            height: 24px;
-            background-color: #ccc;
-            border-radius: 12px;
-            position: relative;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .toggle-knob {
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border-radius: 50%;
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            transition: transform 0.3s;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .toggle-switch.active {
-            background-color: #10b981;
-        }
-
-        .toggle-switch.active .toggle-knob {
-            transform: translateX(20px);
         }
 
         hr {
@@ -99,11 +66,6 @@
             color: #6b7280;
         }
 
-        .disabled {
-            background: #fee2e2;
-            color: #991b1b;
-        }
-
         .footer {
             margin-top: 16px;
         }
@@ -128,9 +90,6 @@
 
     <div class="header">
         <span class="status-label">Captcha Helper</span>
-        <div id="toggleBtn" class="toggle-switch">
-            <div class="toggle-knob"></div>
-        </div>
     </div>
 
     <hr>
@@ -139,9 +98,8 @@
         <div class="label">[ Current Site ]</div>
         <div id="siteName" class="site-name">Checking...</div>
 
-        <div id="badge-active" class="badge success">Auto-fill enabled</div>
-        <div id="badge-unsupported" class="badge warning">Not supported</div>
-        <div id="badge-disabled" class="badge disabled">Extension Paused</div>
+        <div id="badge-active" class="badge success">Active</div>
+        <div id="badge-unsupported" class="badge warning">Inactive (Not supported)</div>
     </div>
 
     <div class="footer">
