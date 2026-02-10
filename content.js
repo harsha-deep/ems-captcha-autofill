@@ -36,10 +36,23 @@ function attemptAutofill() {
     }
 }
 
-attemptAutofill();
-
-const observer = new MutationObserver((_mutations) => {
+function init() {
     attemptAutofill();
-});
 
-observer.observe(document.body, { childList: true, subtree: true });
+    const observer = new MutationObserver((_mutations) => {
+        attemptAutofill();
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+        characterDataOldValue: true
+    });
+}
+
+if (document.body) {
+    init();
+} else {
+    document.addEventListener('DOMContentLoaded', init);
+}
