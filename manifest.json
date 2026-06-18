@@ -10,7 +10,8 @@
     "content_scripts": [
         {
             "matches": [
-                "https://smartcsg.karnataka.gov.in/*"
+                "*://smartcsg.karnataka.gov.in/*",
+                "*://www.smartcsg.karnataka.gov.in/*"
             ],
             "js": [
                 "content.js"
