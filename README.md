@@ -2,6 +2,12 @@
 
 A browser extension that automatically fills in captcha fields on EMS.
 
+<a href="https://chromewebstore.google.com/detail/emfmibmpllcchgnopclcikhhneiiboip">
+  <img width="409" height="123" alt="download" src="https://github.com/user-attachments/assets/4fd41190-a63f-4ca3-a6cd-c638e168f65b" alt="Download from the Chrome Web Store"/>
+</a>
+
+
+
 ## Installation
 
 ### Chrome/Edge
