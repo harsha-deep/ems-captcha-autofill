@@ -12,8 +12,8 @@ function logToStorage(msg) {
 
 
 function attemptAutofill() {
-    const captchaContainer = document.querySelector('.Captcha-box .fw-bold');
-    const inputField = document.getElementById('captcha');
+    const captchaContainer = document.querySelector('.captcha-code-modern1');
+    const inputField = document.querySelector('.captcha-input-modern1');
 
     if (captchaContainer && inputField) {
         let captchaText = "";

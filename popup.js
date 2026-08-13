@@ -49,8 +49,8 @@ function triggerAutofill(tabId) {
     chrome.scripting.executeScript({
         target: { tabId: tabId },
         func: () => {
-            const captchaContainer = document.querySelector('.Captcha-box .fw-bold');
-            const inputField = document.getElementById('captcha');
+            const captchaContainer = document.querySelector('.captcha-code-modern1');
+            const inputField = document.querySelector('.captcha-input-modern1');
 
             if (captchaContainer && inputField) {
                 const captchaText = captchaContainer.firstChild ? captchaContainer.firstChild.textContent.trim() : captchaContainer.textContent.trim();
